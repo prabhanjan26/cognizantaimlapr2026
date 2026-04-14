@@ -5,15 +5,23 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import os 
+import sys
+sys.path.insert(0, os.path.abspath('../../src'))
 
 project = 'day02Project'
 copyright = '2026, Harry'
 author = 'Harry'
 
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon'
+]
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+
 
 templates_path = ['_templates']
 exclude_patterns = []
