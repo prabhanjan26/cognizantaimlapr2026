@@ -1,0 +1,6 @@
+pyproject.toml
+HealthCare.egg-info/PKG-INFO
+HealthCare.egg-info/SOURCES.txt
+HealthCare.egg-info/dependency_links.txt
+HealthCare.egg-info/requires.txt
+HealthCare.egg-info/top_level.txt

@@ -1,0 +1,29 @@
+#configuration toml
+[project]
+name = "HealthCare"
+version = "1.0.0"
+description = "Healthcare Management"
+readme = "README.md"
+authors = [
+    {name = "Harry", email = "harrybhai@gmail.com"},
+    {name = "Ishwar", email = "Ishwar@gmail.com"}
+]
+requires-python = ">=3.8"
+# this is production dependencies
+dependencies = [
+    "faker>=13.3.4"
+]
+
+#developmant dependencies
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.2.0",
+    "pyest-cov>=3.0.0",
+    "balck>=23.3.0",
+    "isort>=5.10.0",
+    "sphinx>=5.0.0"
+]
+
+[tool.balck]
+line-length = 79
+target-version = ['py313']

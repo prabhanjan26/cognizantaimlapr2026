@@ -1,0 +1,19 @@
+2026-04-17 04:37:50,231 - healthcare_logger - INFO - Fetched doctor: Dr. 1, Dr. Smith, Cardiology
+2026-04-17 04:37:50,233 - healthcare_logger - INFO - Updated doctor id 2 to: Dr. 2, Dr. Amy Jones, Pediatrics
+2026-04-17 04:37:50,233 - healthcare_logger - INFO - Deleted doctor with id 1
+2026-04-17 04:37:50,233 - healthcare_logger - WARNING - Expected missing doctor: Doctor with id 1 not found.
+2026-04-17 04:37:50,233 - healthcare_logger - INFO - Patient added: Patient 1, John Doe, 1990-05-10, Ailment: Flu
+2026-04-17 04:37:50,233 - healthcare_logger - INFO - Patient added: Patient 2, Jane Doe, 1985-08-20, Ailment: Migraine
+2026-04-17 04:37:50,233 - healthcare_logger - INFO - Fetched patient: Patient 1, John Doe, 1990-05-10, Ailment: Flu
+2026-04-17 04:38:14,719 - healthcare_logger - INFO - Fetched doctor: Dr. 1, Dr. Smith, Cardiology
+2026-04-17 04:38:14,719 - healthcare_logger - INFO - Updated doctor id 2 to: Dr. 2, Dr. Amy Jones, Pediatrics
+2026-04-17 04:38:14,720 - healthcare_logger - INFO - Deleted doctor with id 1
+2026-04-17 04:38:14,720 - healthcare_logger - WARNING - Expected missing doctor: Doctor with id 1 not found.
+2026-04-17 04:38:14,720 - healthcare_logger - INFO - Patient added: Patient 1, John Doe, 1990-05-10, Ailment: Flu
+2026-04-17 04:38:14,720 - healthcare_logger - INFO - Patient added: Patient 2, Jane Doe, 1985-08-20, Ailment: Migraine
+2026-04-17 04:38:14,720 - healthcare_logger - INFO - Fetched patient: Patient 1, John Doe, 1990-05-10, Ailment: Flu
+2026-04-17 04:38:14,720 - healthcare_logger - INFO - Updating patient with id 2.
+2026-04-17 04:38:14,720 - healthcare_logger - INFO - Updated patient id 2 to: Patient 2, Jane Smith, 1985-08-20, Ailment: Tension Headache
+2026-04-17 04:38:14,720 - healthcare_logger - INFO - Deleting patient with id 1.
+2026-04-17 04:38:14,720 - healthcare_logger - INFO - Deleted patient with id 1
+2026-04-17 04:38:14,720 - healthcare_logger - WARNING - Expected missing patient: 1

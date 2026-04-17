@@ -1,0 +1,15 @@
+"""
+Create patient
+"""
+from datetime import date
+
+
+class Patient:
+    def __init__(self, id: int, name: str, dob: date, ailment: str):
+        self.id = id
+        self.name = name
+        self.dob = dob
+        self.ailment = ailment
+
+    def __str__(self):
+        return f"Patient {self.id}, {self.name}, {self.dob}, Ailment: {self.ailment}"
