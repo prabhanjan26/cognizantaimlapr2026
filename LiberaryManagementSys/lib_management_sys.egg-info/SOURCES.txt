@@ -1,5 +1,0 @@
-pyproject.toml
-lib_management_sys.egg-info/PKG-INFO
-lib_management_sys.egg-info/SOURCES.txt
-lib_management_sys.egg-info/dependency_links.txt
-lib_management_sys.egg-info/top_level.txt
