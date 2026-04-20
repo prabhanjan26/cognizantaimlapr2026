@@ -1,8 +1,8 @@
-# ABC Banking System (Python OOP Project)
+# Banking Management System
 
 ## 📌 Overview
 
-The **ABC Banking System** is a console-based banking application developed using **Object-Oriented Programming (OOP)** principles in **Python**.  
+The **Banking Management System** is a console-based banking application developed using **Object-Oriented Programming (OOP)** principles in **Python**.  
 The project demonstrates clean architecture, inheritance, encapsulation, aggregation, association, and separation of concerns.
 
 The system allows:
