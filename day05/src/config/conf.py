@@ -7,7 +7,7 @@ class Config:
     app_env: str = os.getenv("APP_ENV", "development")
 
     def resource_path(self, resource_name: str) -> str:
-        if self.app_env == "Production":
+        if self.app_env == "production":
             return f"src/resources/customer.json"
         elif self.app_env == "Testing":
             return f"src/resources/customer.txt"

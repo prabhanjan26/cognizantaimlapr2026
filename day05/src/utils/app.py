@@ -18,7 +18,7 @@ def display_customer(customer_store):
         data_loader.load_data(config.resource_path("customer.csv"), customer_store)
         for customer in customer_store.get_all_customer():
             print(customer)
-    
+
 if __name__ == "__main__":
     customer_store = CustomerStoreImpl()
     display_customer(customer_store)
