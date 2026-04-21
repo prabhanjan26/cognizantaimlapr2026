@@ -43,6 +43,14 @@ class Account(ABC):
         """
         return self._transactions
 
+    def can_withdraw(self, amount: float) -> bool:
+        """
+        Checks whether this account has sufficient funds for the withdrawal.
+
+        Savings accounts cannot go below zero by default.
+        """
+        return (self._running_totals - amount) >= 0
+
     # ---------- Abstract Behaviour ----------
 
     @abstractmethod

@@ -35,18 +35,18 @@ class Menu:
         """Starts the CLI loop."""
         while True:
             print("\n=== ABI Banking System ===")
-            print("1. Register Individual Customer")
+            print("1. Register Customer")
             print("2. Login")
             print("3. Exit")
 
-            choice = input("Select an option: ")
+            choice = input("Select an option: ").strip()
 
             if choice == "1":
-                self._register_individual()
+                self._register_customer()
             elif choice == "2":
                 self._login_flow()
             elif choice == "3":
-                print("Goodbye.")
+                print("Logged out.")
                 break
             else:
                 print("Invalid option.")
@@ -56,14 +56,28 @@ class Menu:
     # ======================
 
     def _login_flow(self):
-        email = input("Email: ")
-        password = input("Password: ")
+        email = input("Email: ").strip()
+        password = input("Password: ").strip()
 
         if self.login(email, password):
             print("Login successful.")
             self._logged_in_menu()
         else:
             print("Invalid credentials.")
+
+    def _register_customer(self):
+        print("\n--- Register Customer ---")
+        print("1. Individual")
+        print("2. Corporate")
+
+        customer_type = input("Select customer type: ").strip()
+
+        if customer_type == "1":
+            self._register_individual()
+        elif customer_type == "2":
+            self._register_corporate()
+        else:
+            print("Invalid customer type.")
 
     def _logged_in_menu(self):
         while True:
@@ -73,7 +87,7 @@ class Menu:
             print("3. Make Transaction")
             print("4. Logout")
 
-            choice = input("Select an option: ")
+            choice = input("Select an option: ").strip()
 
             if choice == "1":
                 self._open_savings_account_cli()
@@ -94,7 +108,7 @@ class Menu:
 
     def _register_individual(self):
         print("\n--- Register Individual ---")
-        account_number = input("Account number: ")
+        
         name = input("First name: ")
         surname = input("Surname: ")
         gender = input("Gender: ")
@@ -103,6 +117,7 @@ class Menu:
         contact = input("Contact number: ")
         email = input("Email: ")
         password = input("Password: ")
+        account_number = input("Account number: ")
 
         customer = Individual(
             account_number,
@@ -118,6 +133,30 @@ class Menu:
 
         self.add_customer(customer)
         print("Individual registered successfully.")
+
+    def _register_corporate(self):
+        print("\n--- Register Corporate ---")
+        
+        name = input("Company name: ")
+        company_type = input("Company type (e.g. LTD, PLC): ")
+        address = input("Address: ")
+        contact = input("Contact number: ")
+        email = input("Email: ")
+        password = input("Password: ")
+        account_number = input("Account number: ")
+
+        customer = Corporate(
+            account_number,
+            name,
+            company_type,
+            address,
+            contact,
+            email,
+            password,
+        )
+
+        self.add_customer(customer)
+        print("Corporate registered successfully.")
 
     # ======================
     # ACCOUNT OPERATIONS
@@ -138,6 +177,10 @@ class Menu:
 
     def _view_accounts(self):
         print("\n--- Accounts ---")
+        if not self._customer_account_list:
+            print("No accounts available. Open an account first.")
+            return
+
         for i, acc in enumerate(self._customer_account_list, start=1):
             print(f"{i}. {acc.account_type()} - Balance: {acc.get_running_totals()}")
 
@@ -147,22 +190,24 @@ class Menu:
 
     def _make_transaction_cli(self):
         if len(self._customer_account_list) < 2:
-            print("At least two accounts required.")
+            print("At least two accounts required. Open another account before transferring.")
             return
 
         self._view_accounts()
 
-        sender_index = int(input("Select sender account number: ")) - 1
-        receiver_index = int(input("Select receiver account number: ")) - 1
-        amount = float(input("Amount to transfer: "))
+        sender_index = int(input("Select sender account number: ").strip()) - 1
+        receiver_index = int(input("Select receiver account number: ").strip()) - 1
+        amount = float(input("Amount to transfer: ").strip())
 
         sender = self._customer_account_list[sender_index]
         receiver = self._customer_account_list[receiver_index]
 
-        transaction = Transaction(amount, sender, receiver)
-        self.initiate_transaction(transaction)
-
-        print("Transaction completed.")
+        try:
+            transaction = Transaction(amount, sender, receiver)
+            self.initiate_transaction(transaction)
+            print("Transaction completed.")
+        except ValueError as exc:
+            print(f"Transaction failed: {exc}")
 
     # ======================
     # EXISTING METHODS

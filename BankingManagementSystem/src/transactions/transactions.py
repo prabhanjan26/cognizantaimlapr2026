@@ -45,6 +45,9 @@ class Transaction(ABC):
         Deposits money into the receiver's account
         and records the transaction.
         """
+        if self._amount <= 0:
+            raise ValueError("Transfer amount must be greater than zero.")
+
         self._receiver.set_running_totals(
             self._receiver.get_running_totals() + self._amount
         )
@@ -55,6 +58,12 @@ class Transaction(ABC):
         Withdraws money from the sender's account
         and records the transaction.
         """
+        if self._amount <= 0:
+            raise ValueError("Transfer amount must be greater than zero.")
+
+        if not self._sender.can_withdraw(self._amount):
+            raise ValueError("Insufficient funds for withdrawal.")
+
         self._sender.set_running_totals(
             self._sender.get_running_totals() - self._amount
         )
