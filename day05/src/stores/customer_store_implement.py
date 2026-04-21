@@ -10,7 +10,7 @@ class CustomerStoreImpl(CustomerStore):
     def add_customer(self, customer):
         self.customers.append(customer)
     
-    def get_all_customer(self):
+    def get_all_customers(self):
         return self.customers
     
     def get_customer(self, customer_id):

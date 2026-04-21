@@ -7,7 +7,7 @@ class CustomerStore(ABC):
         pass
     
     @abstractmethod
-    def get_all_customer(self, customer_id):
+    def get_all_customers(self):
         pass
     
     @abstractmethod
